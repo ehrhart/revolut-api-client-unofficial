@@ -4,6 +4,7 @@
   "description": "",
   "main": "src/revolut.js",
   "scripts": {
+    "start": "node ."
   },
   "author": "",
   "license": "ISC",
