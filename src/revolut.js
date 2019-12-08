@@ -1,5 +1,5 @@
 // this code is forked from https://github.com/tducret/revolut-python
-import Rp from 'request-promise';
+const Rp = require('request-promise');
 
 // api host
 const host = 'https://api.revolut.com'
@@ -141,4 +141,4 @@ const payment = async (phone, amount, currency, token) => {
   return await makeRequest('/transfer', token, body);
 }
 
-export default { getAccounts, exchange, payment, loginSms, login }
+module.exports = { getAccounts, exchange, payment, loginSms, login }
