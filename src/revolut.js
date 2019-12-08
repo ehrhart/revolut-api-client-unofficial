@@ -125,7 +125,7 @@ const exchange = async (fromCcy, fromAmount, toCcy, token) => {
  * @param amount: amount to be transferred (x 100: 2.34USD => 234)
  * @param currency: three letter code of the currency
  */
-const payment = async (phone, amount, currency, token) => {
+const payment = async (phone, amount, currency, userComments, token) => {
   if(typeof currency === 'undefined') {
     currency = 'USD';
   }
@@ -135,7 +135,8 @@ const payment = async (phone, amount, currency, token) => {
   const body = {
     amount,
     currency,
-    recipient
+    recipient,
+    userComments
   };
 
   return await makeRequest('/transfer', token, body);
