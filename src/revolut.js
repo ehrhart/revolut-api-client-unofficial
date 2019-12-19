@@ -111,6 +111,15 @@ const getAccounts = async (token) => {
   return makeRequest('/user/current/wallet', token);
 }
 
+const getCards = async (token) => {
+  return makeRequest('/user/current/cards', token);
+}
+
+const requestTopUp = async (amount, currency, externalCardId, token) => {
+  const body = {amount, currency, externalCardId};
+  return await makeRequest('/topup/create', token, body);
+}
+
 // did not test
 const exchange = async (fromCcy, fromAmount, toCcy, token) => {
   const toAmount = null;
@@ -142,4 +151,4 @@ const payment = async (phone, amount, currency, userComments, token) => {
   return await makeRequest('/transfer', token, body);
 }
 
-module.exports = { getAccounts, exchange, payment, loginSms, login }
+module.exports = { getAccounts, getCards, requestTopUp, exchange, payment, loginSms, login }
